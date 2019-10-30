@@ -14,7 +14,9 @@ module.exports = function(app) {
   // Load inventory page
   app.get("/inventory", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.render("inventory");
+      res.render("inventory", {
+        example: dbExamples
+      });
     });
   });
 
