@@ -11,12 +11,12 @@ module.exports = function(app) {
     });
   });
 
-    // Load inventory page
-    app.get("/inventory", function(req, res) {
-      db.Example.findAll({}).then(function(dbExamples) {
-        res.render("inventory");
-      });
+  // Load inventory page
+  app.get("/inventory", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("inventory");
     });
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
