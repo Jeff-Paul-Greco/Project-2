@@ -13,6 +13,15 @@
     margin-top: 25px;
 }
 
+.row .col {
+    padding: 0px;
+}
+
+.card .card-content .card-title {
+    margin-bottom: 25px;
+}
+
+
 
 
 @media screen and (max-width: 600px) {
@@ -21,7 +30,7 @@
     }
     
     .row .col.s12 {
-        width: 75%;
+        width: 85%;
         margin-left: auto;
         margin-right: auto;
     }
