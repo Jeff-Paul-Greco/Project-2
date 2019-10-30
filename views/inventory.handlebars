@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    {{!-- first row is the search bar to filter --}}
+    <div class="col-md-12" id="filter">
+      <input type="text" id="inventory-filter" class="form-control" aria-describedby="inventory-filter"
+        placeholder="Filter Items">
+      <button id="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+  </div>
+
+  <div class="row" id="wishlist-div">
+    {{!-- next div is the items that are marked as wishlist in the user's inventory --}}
+    <div class="col-md-12">
+      <h5>Wishlist</h5>
+      <table>
+        <thead>
+          <th>Item Description</th>
+          <th>Quantity Desired</th>
+          <th>Current Price</th>
+          <th>Add to Inventory</th>
+        </thead>
+        <tbody>
+          <td>Nestle Water</td>
+          <td>50</td>
+          <td>$2.99</td>
+          <td><button class="btn btn-success btn-border">&plus;</button></td>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+  <div class="row" id="inventory-div">
+    {{!-- this div reveals the items in the user's inventory --}}
+    <div class="col-md-12">
+      <h5>Current Inventory</h5>
+      <table>
+        <thead>
+          <th>Item Description</th>
+          <th>Quantity</th>
+          <th>Remove from Inventory</th>
+        </thead>
+        <tbody>
+          <td>Campbell's Chicken Noodle</td>
+          <td>500</td>
+          <td><button class="btn btn-danger btn-border">&minus;</button></td>
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+
+
+
+
+</div>
