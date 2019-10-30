@@ -5,8 +5,17 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
-        msg: "Welcome!",
+        msg: "Hi there <username-here>, welcome fellow prepper!",
         examples: dbExamples
+      });
+    });
+  });
+
+  // Load inventory page
+  app.get("/inventory", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("inventory", {
+        example: dbExamples
       });
     });
   });
