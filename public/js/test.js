@@ -1,14 +1,15 @@
-$(document).ready(function () {
+$(document).ready(function() {
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
 
-    $("#submit").on("click", function (event) {
-        event.preventDefault()
+    var username = $("#username")
+      .val()
+      .trim();
+    var password = $("#password")
+      .val()
+      .trim();
 
-        var username = $("#username").val().trim()
-        var password = $("#password").val().trim()
-
-        console.log(username)
-        console.log(password)
-    })
-})
-
-
+    console.log(username);
+    console.log(password);
+  });
+});
