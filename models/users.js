@@ -3,6 +3,7 @@ let sequelize = require('../config/connection');
 
 const Users = sequelize.define('Users', {
 
+  // should probably add first and last name fields 
   username: {
     type: Sequelize.STRING,
       primaryKey : true
