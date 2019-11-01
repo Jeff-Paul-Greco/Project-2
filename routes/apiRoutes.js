@@ -1,7 +1,7 @@
 require("dotenv").config();
 var db = require("../models");
 var axios = require("axios");
-var Users = require('../models/users');
+//var Users = require('../models/users');
 
 const upcKey = process.env.UPC_KEY; // api key to upcdatabase.org
 
@@ -30,7 +30,7 @@ module.exports = function (app) {
     res.json(item);
   });
 
-  app.post("/api/newUser", function (req, res) {
+  //app.post("/api/newUser", function (req, res) {
 
     // <?> is lines 9-14 the same thing as 16- just using sequelize?
     //   let dbQuery = "INSERT INTO users (username, password, token) VALUES (?,?,?)"
@@ -40,28 +40,28 @@ module.exports = function (app) {
     //     res.end();
     //   })
     // })
-    let user = req.body;
+   // let user = req.body;
 
     //adding users to db using sequelize 
 
-    Users.create({
+   // Users.create({
 
-      username: user.username,
-      password: user.password
-    })
+   //   username: user.username,
+   //   password: user.password
+   // })
 
-    res.status(204).end()
+   // res.status(204).end()
 
-  })
+  //})
 
   //get all users in the db
 
-  app.get("/api/:users?", function (req, res) {
-    if (req.params.users) {
-      Users.findAll({}).then(function (res) {
-        res.json(res);
-      })
-    }
-  })
+  //app.get("/api/:users?", function (req, res) {
+  //  if (req.params.users) {
+  //    Users.findAll({}).then(function (res) {
+  //      res.json(res);
+  //    })
+  //  }
+  //})
 
 }
