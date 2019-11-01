@@ -34,12 +34,12 @@ var syncOptions = { force: false };
 // }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+// db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "App is listening on PORT" + PORT
     );
   });
-});
+//});
 
 module.exports = app;

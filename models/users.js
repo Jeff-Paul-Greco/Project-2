@@ -3,14 +3,22 @@ let sequelize = require('../config/connection');
 
 const Users = sequelize.define('Users', {
 
-  // should probably add first and last name fields 
+  // should probably add first and last name or email fields 
+ 
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false
+
+  },
   username: {
     type: Sequelize.STRING,
-      primaryKey : true
+      primaryKey : true,
+      allowNull: false
   },
 
   password : {
     type: Sequelize.STRING,
+    allowNull: false
  },
 
  token: {
