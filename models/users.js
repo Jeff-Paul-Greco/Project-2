@@ -15,4 +15,7 @@ const Users = sequelize.define('Users', {
  token: {
    type: Sequelize.STRING,
  }
-})
+});
+
+Users.sync();
+module.exports = Users;
