@@ -30,27 +30,69 @@ module.exports = function (app) {
     res.json(item);
   });
 
+  // Get all items
+  app.get("/api/items", function (req, res) {
+    db.Item.findAll({}).then(function (dbItems) {
+      res.json(dbItems);
+    });
+  });
+
+  // Create a new item
+  app.post("/api/items", function (req, res) {
+    db.Item.create(req.body).then(function (dbItem) {
+      res.json(dbItem);
+    });
+  });
+
+  // Delete an item by id
+  app.delete("/api/items/:id", function (req, res) {
+    db.Item.destroy({ where: { id: req.params.id } }).then(function (dbItem) {
+      res.json(dbItem);
+    });
+  });
+
+  // Get all examples
+  app.get("/api/examples", function (req, res) {
+    db.Example.findAll({}).then(function (dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
+  // Create a new example
+  app.post("/api/examples", function (req, res) {
+    db.Example.create(req.body).then(function (dbExample) {
+      res.json(dbExample);
+    });
+  });
+
+  // Delete an example by id
+  app.delete("/api/examples/:id", function (req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+      res.json(dbExample);
+    });
+  });
+
   //app.post("/api/newUser", function (req, res) {
 
-    // <?> is lines 9-14 the same thing as 16- just using sequelize?
-    //   let dbQuery = "INSERT INTO users (username, password, token) VALUES (?,?,?)"
-    //   connection.query(dbQuery, [req.body.username, req.body.password, req.body.token], function(err,res){
-    //     if(err) throw err;
-    //     console.log("User successfully added")
-    //     res.end();
-    //   })
-    // })
-   // let user = req.body;
+  // <?> is lines 9-14 the same thing as 16- just using sequelize?
+  //   let dbQuery = "INSERT INTO users (username, password, token) VALUES (?,?,?)"
+  //   connection.query(dbQuery, [req.body.username, req.body.password, req.body.token], function(err,res){
+  //     if(err) throw err;
+  //     console.log("User successfully added")
+  //     res.end();
+  //   })
+  // })
+  // let user = req.body;
 
-    //adding users to db using sequelize 
+  //adding users to db using sequelize 
 
-   // Users.create({
+  // Users.create({
 
-   //   username: user.username,
-   //   password: user.password
-   // })
+  //   username: user.username,
+  //   password: user.password
+  // })
 
-   // res.status(204).end()
+  // res.status(204).end()
 
   //})
 
