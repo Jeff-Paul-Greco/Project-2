@@ -31,7 +31,7 @@
   
   span {
     position: relative;
-    top: -8px;
+    top: -10px;
     padding: 0 10px;
     font-weight: 500;
     border-radius: 4px;
@@ -40,6 +40,11 @@
     color: #ffff;
     background: #546e7a;
   }
+
+
+.row .col.s9 {   
+    margin-top: 35px;
+}
 
 
 

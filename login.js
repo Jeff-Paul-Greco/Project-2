@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#submit").on("click", function (event) {
+  $("#login").on("click", function (event) {
     event.preventDefault();
 
     var username = $("#username")
