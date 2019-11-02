@@ -1,6 +1,3 @@
-let Sequelize = require('sequelize');
-let sequelize = require('../config/connection');
-
 const User = sequelize.define('Users', {
 
   // should probably add first and last name or email fields 
@@ -26,14 +23,16 @@ const User = sequelize.define('Users', {
  }
 });
 
+User.associate = function(models) {
+  // Associating User with Items
+ //  When an User is deleted, also delete any associated Items
+   User.hasMany(models.Item, {
+    onDelete: "cascade"
+  });
+};
+
 User.sync();
 module.exports = User;
 
 
-  // User.associate = function(models) {
-    // Associating User with Items
-    // When an User is deleted, also delete any associated Items
-    //User.hasMany(models.Item, {
-    //  onDelete: "cascade"
-   // });
- // };
+  
