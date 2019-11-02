@@ -42,6 +42,5 @@ $("#submit-registration").on("click", function(event){
   $("#lastname").val("");
   $("#username").val("");
   $("#password").val("");
-
-
+  
 })
