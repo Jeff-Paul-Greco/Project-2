@@ -7,7 +7,9 @@ $(document).on("ready", function() {
     $.ajax({
       method: "POST",
       url: "/api/search",
-      data: { barcode: barcode }
+      data: {
+        barcode: barcode
+      }
     }).then(function(data) {
       let html = `<p>${data.data}</p>`;
       $("#results").append(html);
