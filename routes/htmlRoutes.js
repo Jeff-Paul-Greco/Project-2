@@ -3,12 +3,12 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    // db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Hi there <username-here>, welcome fellow prepper!",
-        examples: dbExamples
+        // examples: dbExamples
       });
-    });
+    // });
   });
 
   // Load inventory page
@@ -22,11 +22,8 @@ module.exports = function(app) {
 
   // Load search page
   app.get("/search", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
       res.render("search", {
-        example: dbExamples
       });
-    });
   });
 
   // Load example page and pass in an example by id
