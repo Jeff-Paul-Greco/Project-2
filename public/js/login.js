@@ -12,4 +12,10 @@ $(document).ready(function () {
     console.log(username);
     console.log(password);
   });
+
+  $("#inventory").hide()
+
+  $(".acct-controls-div").hide()
+
+
 });

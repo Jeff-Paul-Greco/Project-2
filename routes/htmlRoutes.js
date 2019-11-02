@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load Login
-  app.get("/logout", function(req, res) {
+  app.get("/login", function(req, res) {
     res.render("login");
   });
   
