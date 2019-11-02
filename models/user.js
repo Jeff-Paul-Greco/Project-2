@@ -1,18 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-  username: {
-    type: DataTypes.STRING,
-      primaryKey : true
-  },
+    username: {
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
 
-  password : {
-    type: DataTypes.STRING,
- },
+    password: {
+      type: DataTypes.STRING
+    },
 
- token: {
-   type: DataTypes.STRING,
- }
-});
+    token: {
+      type: DataTypes.STRING
+    }
+  });
 
   User.associate = function(models) {
     // Associating User with Items
@@ -24,4 +24,3 @@ module.exports = function(sequelize, DataTypes) {
 
   return User;
 };
-
