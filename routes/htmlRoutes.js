@@ -2,31 +2,25 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get('/', function(err,res){
-    res.render('index', {title: "DoomsDay Preppers Sign-Up"})
+  app.get("/", function(err, res) {
+    res.render("index", { title: "DoomsDay Preppers Sign-Up" });
   });
-  
-  app.post('/register', function(req,res,proceed){
-    
+
+  app.post("/register", function(req, res, proceed) {
     req.body.username;
     req.body.password;
     req.body.password2;
-    res.render('index', {title: "THANK YOU FOR REGISTERING"})
+    res.render("index", { title: "THANK YOU FOR REGISTERING" });
   });
 
   // Load inventory page
   app.get("/inventory", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("inventory", {
-        example: dbExamples
-      });
-    });
+    res.render("inventory", {});
   });
 
   // Load search page
   app.get("/search", function(req, res) {
-      res.render("search", {
-      });
+    res.render("search", {});
   });
 
   // Load example page and pass in an example by id
