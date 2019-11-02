@@ -1,33 +1,20 @@
 require("dotenv").config();
 var db = require("../models");
-var axios = require("axios");
+var upc = require("../controllers/upc.js");
 //var Users = require('../models/users');
-
-const upcKey = process.env.UPC_KEY; // api key to upcdatabase.org
-
-function upcLookup(barcode) {
-  var url = `https://api.upcdatabase.org/product/${barcode}?apikey=${upcKey}`;
-  axios
-    .get(url)
-    .then(function (response) {
-      if (response.status === 200) {
-        if (response.data.description) {
-          return response.data.description;
-        } else {
-          return "Item description not found.";
-        }
-      } else {
-        return "Invalid Request";
-      }
-    });
-}
 
 module.exports = function (app) {
   // post for barcode lookup
   app.post("/api/search", function (req, res) {
-    let barcode = req.body.barcode;
-    var item = upcLookup(barcode);
-    res.json(item);
+    item = ''
+    var barcode = req.body.barcode;
+    // the below passes the barcode for upc lookup, then runs a callback function.
+    upc.lookup(barcode, function(){ 
+      console.log(res)
+      var data = {data: item}
+      console.log(data);
+      res.json(data);  
+    })
   });
 
   // Get all items
