@@ -6,7 +6,6 @@ var upc = require("../controllers/upc.js");
 module.exports = function (app) {
   // post for barcode lookup
   app.post("/api/search", function (req, res) {
-    item = ''
     var barcode = req.body.barcode;
     // the below passes the barcode for upc lookup, then runs a callback function.
     upc.lookup(barcode, function(){ 
