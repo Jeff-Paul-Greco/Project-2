@@ -9,10 +9,10 @@ var upc = {
     var url = `https://api.upcdatabase.org/product/${barcode}?apikey=${upcKey}`;
     axios.get(url).then(function(response) {
       if (response.status === 200) {
-        if (response.data.description) {
-          item = response.data.description;
+        if (response.data.title) {
+          item = response.data.title;
         } else {
-          item = "Item description not found.";
+          item = "Item not found.";
         }
       } else {
         item = "Invalid Request";
