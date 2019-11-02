@@ -10,12 +10,12 @@ var upc = {
     axios.get(url).then(function(response) {
       if (response.status === 200) {
         if (response.data.description) {
-          item += response.data.description;
+          item = response.data.description;
         } else {
-          item += "Item description not found.";
+          item = "Item description not found.";
         }
       } else {
-        item += "Invalid Request";
+        item = "Invalid Request";
       }
       cb(item);
     });
