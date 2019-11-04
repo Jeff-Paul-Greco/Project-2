@@ -53,7 +53,12 @@ th{
   margin-top: 30px;
 }
 
-
+#new-item-desc{
+  float: left;
+}
+#new-item-btn{
+  float: right;
+}
 
 #wishlist-div,#inventory-div{
   margin-top: 40px;
