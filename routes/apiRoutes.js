@@ -3,12 +3,12 @@ var db = require("../models");
 var upc = require("../controllers/upc.js");
 //var Users = require('../models/users');
 
-module.exports = function(app) {
+module.exports = function (app) {
   // post for barcode lookup
-  app.post("/api/search", function(req, res) {
+  app.post("/api/search", function (req, res) {
     var barcode = req.body.barcode;
     // the below passes the barcode for upc lookup, then runs a callback function.
-    upc.lookup(barcode, function() {
+    upc.lookup(barcode, function () {
       console.log(res);
       var data = { data: item };
       console.log(data);
@@ -17,37 +17,47 @@ module.exports = function(app) {
   });
 
   // Get all items
-  app.get("/api/items", function(req, res) {
-    db.Item.findAll({}).then(function(dbItems) {
+  app.get("/api/items", function (req, res) {
+    db.Item.findAll({}).then(function (dbItems) {
       res.json(dbItems);
     });
   });
 
   // Create a new item
-  app.post("/api/items", function(req, res) {
-    db.Item.create(req.body).then(function(dbItem) {
+  app.post("/api/items", function (req, res) {
+    db.Item.create(req.body).then(function (dbItem) {
       res.json(dbItem);
     });
   });
 
   // Delete an item by id
-  app.delete("/api/items/:id", function(req, res) {
-    db.Item.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
+  app.delete("/api/items/:id", function (req, res) {
+    db.Item.destroy({ where: { id: req.params.id } }).then(function (dbItem) {
+      res.json(dbItem);
+    });
+  });
+
+  // Update an item by id
+  app.put("/api/items/:id", function (req, res) {
+    db.Item.update(
+      { wishlist: false },
+      { where: { id: req.params.id } }
+    ).then(function (dbItem) {
       res.json(dbItem);
     });
   });
 
   // Getting all users in the db
-  app.get("/api/:users?", function(req, res) {
+  app.get("/api/:users?", function (req, res) {
     if (req.params.users) {
-      Users.findAll({}).then(function(res) {
+      Users.findAll({}).then(function (res) {
         res.json(res);
       });
     }
   });
 
   // Creating a new user (acct registration)
-  app.post("/api/newUser", function(req, res) {
+  app.post("/api/newUser", function (req, res) {
     let user = req.body;
     Users.create({
       username: user.username,
