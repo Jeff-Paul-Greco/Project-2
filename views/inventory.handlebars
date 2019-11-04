@@ -41,15 +41,30 @@
           <th>Item Description</th>
           <th>Quantity</th>
           <th>Remove from Inventory</th>
+          {{#each items}} {{#if this.wishlist}}
+          <tr>
+          <td>{{this.description}}</td>
+          <td>{{this.qty}}</td>
+          <td><button data-id="{{this.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
+          </tr>
+          {{/if}} {{/each}}
         </thead>
         <tbody>
-          <td>Campbell's Chicken Noodle</td>
+
+
+          {{#each items}} {{#unless this.wishlist}}
+          <tr>
+          <td>{{this.description}}</td>
+          <td>{{this.qty}}</td>
+          <td><button data-id="{{this.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
+          </tr>
+          {{/unless}} {{/each}}
+
+          {{!-- <td>Campbell's Chicken Noodle</td>
           <td>500</td>
-          <td><button class="btn btn-danger btn-border">&minus;</button></td>
+          <td><button class="btn btn-danger btn-border">&minus;</button></td> --}}
         </tbody>
       </table>
-
-
 
     </div>
   </div>
