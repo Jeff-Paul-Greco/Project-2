@@ -1,7 +1,12 @@
 require("dotenv").config();
 var db = require("../models");
 var upc = require("../controllers/upc.js");
-//var Users = require('../models/users');
+var User = require('../models/user.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+process.env.SECRET_KEY = 'secret'
+
 
 module.exports = function(app) {
   // post for barcode lookup
@@ -38,20 +43,50 @@ module.exports = function(app) {
   });
 
   // Getting all users in the db
-  app.get("/api/:users?", function(req, res) {
-    if (req.params.users) {
-      Users.findAll({}).then(function(res) {
-        res.json(res);
+  app.get("/api/users", function(req, res) {
+   // if (req.params.user) {
+      User.findAll({})
+      .then(function(results) {
+        res.json(results);
       });
-    }
+  //  }
   });
 
   // Creating a new user (acct registration)
-  app.post("/api/newUser", function(req, res) {
-    let user = req.body;
-    Users.create({
-      username: user.username,
-      password: user.password
-    });
-  });
-};
+  user.post("/newUser", function(req, res) {
+  
+    const userData = {
+
+      username: req.body.username,
+      password: req.body.password,
+     
+    }
+
+    User.findOne({ 
+      where: {
+        username: req.body.username
+      }
+    }).then(user => {
+      if(!user){
+
+        const hash = bycrpt.hashSync(userData.password, 10)
+        userData.password = hash
+        User.create(userData)
+        .then(user => {
+          let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {expiresIn: 1550
+        })
+
+        res.json({ token : token})
+      }).catch(err =>{
+        res.send('error:'+ err)
+      })
+    }
+    else {
+      res.json({ error: "We're sorry this user already exists"})
+    }
+  }).catch(err=>{
+      res.send('error' + error)
+    })
+})
+
+}

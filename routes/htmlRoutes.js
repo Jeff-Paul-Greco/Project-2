@@ -13,6 +13,12 @@ module.exports = function(app) {
     res.render("index", { title: "THANK YOU FOR REGISTERING" });
   });
 
+
+  // Loads login page 
+
+  app.get("/login", function(req,res){
+    res.render("login", {});
+  }) // as of right now there is no login route.
   // Load inventory page
   app.get("/inventory", function(req, res) {
     res.render("inventory", {});
@@ -33,7 +39,6 @@ module.exports = function(app) {
       });
     });
   });
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

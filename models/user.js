@@ -1,5 +1,7 @@
+const Sequelize = require("sequelize")
+
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  var user = sequelize.define("user", {
     email: {
       type: DataTypes.STRING,
       allowNull: false
@@ -14,9 +16,9 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
 
-    token: {
-      type: DataTypes.STRING,
-    }
+    // token: {
+    //   type: DataTypes.STRING,
+    // }
   });
 
 
@@ -28,5 +30,6 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  return User;
+  return user;
 };
+

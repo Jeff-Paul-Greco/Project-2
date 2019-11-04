@@ -22,16 +22,20 @@
 // this file should be users.js and should have the 
 // on click for registering
 
-$("#submit-registration").on("click", function(event){
+$("#submit").on("click", function(event){
   event.preventDefault();
 
   let newUser = {
 
-    firstName: $("#firstName").val().trim(),
-    lastName:$("#lastName").val().trim(),
-    userName: $("#username").val().trim(),
-    password: $("#password").val().trim(),
+    //firstName: $("#firstName").val().trim(),
+    //lastName:$("#lastName").val().trim(),
+    userName: $("#username-text").val().trim(),
+    password: $("#password-text").val().trim(),
+    password2: $("#password2-text").val().trim(),
+
   };
+
+  console.log(newUser)
 
   $.post("/api/newUser", newUser).then(function(data){
     console.log(data);
