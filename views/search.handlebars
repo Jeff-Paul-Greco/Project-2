@@ -13,8 +13,11 @@
         </form>
         <h3>Search Results:</h3>
         <div id="results" class="hidden">
-          <p id="new-item-desc"><button class="btn btn-success" id="new-item">&plus;
-              Add Item</button></p>
+          <div id="new-item-desc">
+            {{!-- js fills in this --}}
+          </div>
+          <button type="submit" class="btn btn-success" data-toggle="modal"
+              data-target="#itemAddModal" id="new-item-btn">Add Item to inventory</button>
         </div>
       </div>
     </div>
@@ -44,8 +47,8 @@
   </div>
 </div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="/js/upcLookup.js"></script>
 {{!-- <script src="/js/index.js"></script> --}}
