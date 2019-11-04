@@ -88,3 +88,27 @@ $("#add-item").on("click", function () {
     }
   });
 });
+
+$("#wishlist").on("click", function () {
+
+  var payload = {
+    username: "jdoe",
+    description: $("#item-description").val().trim(),
+    qty: $("#quantity").val().trim(),
+    barcode: $("#item-search").val().trim(),
+    wishlist: true
+  }
+  console.log(payload);
+
+  $.ajax({
+    method: "POST",
+    url: "/api/items",
+    data: payload
+  }).then(function (response) {
+    if (response.status(200)) {
+      alert("Item added successfully.");
+    } else {
+      alert("Item was not added.")
+    }
+  });
+});
