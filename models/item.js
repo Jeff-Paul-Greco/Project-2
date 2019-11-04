@@ -29,15 +29,15 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Item.associate = function(models) {
-    // We're saying that a Item should belong to an User
-    // A Item can't be created without an User due to the foreign key constraint
-    Item.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Item.associate = function(models) {
+  //   // We're saying that a Item should belong to an User
+  //   // A Item can't be created without an User due to the foreign key constraint
+  //   Item.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Item;
 };
