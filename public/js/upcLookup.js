@@ -1,4 +1,7 @@
 console.log("loaded upcLookup.js");
+
+$("itemAddModal").modal();
+
 $("#submit").on("click", function(event) {
   event.preventDefault();
 
@@ -11,23 +14,20 @@ $("#submit").on("click", function(event) {
     }
   }).then(function(data) {
     console.log(data);
-    $("#new-item-desc").html(`${data.data}&nbsp;--------->&nbsp;<button class="btn btn-success" id="new-item">&plus;
-    Add Item</button>`);
+    $("#new-item-desc").html(`<h5>${data.data}</h5>`);
     $("#results").removeClass("hidden");
   });
 });
 
-$("#new-item").on("click", function(event){
+$("#new-item-btn").on("click", function(event){
   event.preventDefault();
   console.log("new item button clicked.")
 
-  var newItem = $("#new-item-desc").val().trim();
-
+  var newItem = $("#new-item-desc")[0].innerText;
 
   // popup modal.
   var modalBody = `
   <form role="form" method="POST" action="">
-  <input type="hidden" name="_token" value="">
   <div class="form-group">
     <label class="control-label">Item Description</label>
     <div>
