@@ -43,13 +43,21 @@
           <th>Remove from Inventory</th>
         </thead>
         <tbody>
-          <td>Campbell's Chicken Noodle</td>
-          <td>500</td>
+
+
+          {{#each items}}
+          <tr>
+          <td>{{this.description}}</td>
+          <td>{{this.qty}}</td>
           <td><button class="btn btn-danger btn-border">&minus;</button></td>
+          </tr>
+          {{/each}}
+
+          {{!-- <td>Campbell's Chicken Noodle</td>
+          <td>500</td>
+          <td><button class="btn btn-danger btn-border">&minus;</button></td> --}}
         </tbody>
       </table>
-
-
 
     </div>
   </div>
