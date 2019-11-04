@@ -16,10 +16,14 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
+<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^1.6.5",
+=======
+    "mysql2": "^1.7.0",
+>>>>>>> 670ba3d70f47d78d0f95f973326db3eb7ef042bf
     "passport": "^0.4.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.21.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",

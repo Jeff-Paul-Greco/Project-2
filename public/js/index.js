@@ -94,6 +94,34 @@
 //   });
 // };
 
-// // Add event listeners to the submit and delete buttons
-// $submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleFormSubmit);
+$exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//////////////////////////////////////////////////////////
+
+$(".delete").on("click", function(id) {
+  id = $(this).attr("data-id")
+  $.ajax({
+    url: "api/items/" + id,
+    type: "DELETE"
+  });
+  reload();
+});
+
+$(".update").on("click", function(id) {
+  id = $(this).attr("data-id")
+  $.ajax({
+    url: "api/items/" + id,
+    type: "PUT"
+  });
+  reload();
+});
+
+function reload() {
+  $.ajax({
+    url: "api/items",
+    type: "GET"
+  });
+  location.reload();
+}

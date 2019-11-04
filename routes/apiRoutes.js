@@ -42,51 +42,29 @@ module.exports = function(app) {
     });
   });
 
+  // Update an item by id
+  app.put("/api/items/:id", function(req, res) {
+    db.Item.update({ wishlist: false }, { where: { id: req.params.id } }).then(
+      function(dbItem) {
+        res.json(dbItem);
+      }
+    );
+  });
+
   // Getting all users in the db
   app.get("/api/users", function(req, res) {
-   // if (req.params.user) {
-      User.findAll({})
-      .then(function(results) {
-        res.json(results);
+      db.User.findAll({}).then(function(response) {
+        res.json(response);
       });
-  //  }
   });
 
   // Creating a new user (acct registration)
-  user.post("/newUser", function(req, res) {
-  
-    const userData = {
-
-      username: req.body.username,
-      password: req.body.password,
-     
-    }
-
-    User.findOne({ 
-      where: {
-        username: req.body.username
-      }
-    }).then(user => {
-      if(!user){
-
-        const hash = bycrpt.hashSync(userData.password, 10)
-        userData.password = hash
-        User.create(userData)
-        .then(user => {
-          let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {expiresIn: 1550
-        })
-
-        res.json({ token : token})
-      }).catch(err =>{
-        res.send('error:'+ err)
-      })
-    }
-    else {
-      res.json({ error: "We're sorry this user already exists"})
-    }
-  }).catch(err=>{
-      res.send('error' + error)
-    })
-})
-
-}
+  app.post("/api/newUser", function(req, res) {
+    let user = req.body;
+    console.log(user);
+    db.User.create({
+      username: user.username,
+      password: user.password
+    });
+  });
+};
