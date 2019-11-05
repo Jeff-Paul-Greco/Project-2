@@ -1,23 +1,25 @@
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    // email: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
     username: {
       type: DataTypes.STRING,
-      primaryKey: true,
       allowNull: false
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-
-    token: {
-      type: DataTypes.STRING,
     }
-  });
+  },{
+  indexes: [
+      {
+          unique: true,
+          fields: ['username']
+      }
+  ]
+});
 
 
   User.associate = function (models) {
