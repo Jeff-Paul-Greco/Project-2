@@ -1,54 +1,37 @@
 <body>
-    {{!-- <nav>
-        <div class="nav-wrapper">
-            <img src="./img/fallout.png" height="56px" href="#" class="brand-logo"></img>
-        </div>
-    </nav> --}}
-
-    <!-- <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">DOOMPREP?</a>
-        </div>
-    </nav> -->
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1 z-depth-3">
-                <div class="card-content white-text">
-                    <form class="col s12 white-text">
-                        <div class="card-title login-title">Login</div>
-                        <div class="input-field col s12">
-                            <input id="username" type="text" class="validate white-text">
-                            <label for="username">Username</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="center-align">
-                            <button class="btn waves-effect waves-light col s12 blue darken-2" id="login" type="submit"
-                                name="action">Log In
-                                <!-- <i class="material-icons right">send</i> -->
-                            </button>
-                        </div>
-                        <!-- <div class="card-action center-align">
-                            <button class="btn waves-effect waves-light col s12" id="submit" type="submit"
-                                name="action">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div> -->
-                        <div class="wrapper col s12">
-                            <span>OR</span>
-                        </div>
-                        <div class="center-align">
-                            <button class="btn waves-effect waves-light col s9 green" id="new-user" type="submit"
-                                name="action">Create New User
-                                <!-- <i class="material-icons right">send</i> -->
-                            </button>
-                        </div>
-                    </form>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="https://fontmeme.com/permalink/191105/b22789a33160dfafb34adc44bb924d49.png" width="200px"
+                alt="fallout-font" border="0">
+        </a>
+    </nav>
+    <div class="container welcome-container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="text-center">Welcome Preppers!</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center bg-light mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Log into DoomPrep</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="username"></label>
+                                <input type="text" class="form-control" id="username" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password"></label>
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                        <div class="separator">OR</div>
+                        <button type="submit" class="btn btn-success btn-block">Create New User</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
