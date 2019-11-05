@@ -7,7 +7,14 @@ module.exports = function (sequelize, DataTypes) {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      is: /^[a-z]+$/i
+      validate: {
+      is: /^[a-z]+$/i,
+      len:{
+        args: [5,15],
+        msg: "Username must be between 5 and 15 characters"
+      }
+    
+      }
     },
     password: {
       type: DataTypes.STRING,
