@@ -6,6 +6,10 @@ module.exports = function (app) {
     res.render("index", { title: "DoomsDay Preppers Sign-Up" });
   });
 
+  app.get("/login", function(err, res){
+    res.render("login")
+  });
+
   app.post("/register", function (req, res, proceed) {
     req.body.username;
     req.body.password;
