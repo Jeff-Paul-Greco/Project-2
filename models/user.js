@@ -18,7 +18,14 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len:{
+          args: [5,15],
+          msg: "Pasword must be between 5 and 15 characters"
+        }
+      
+        }
     },
 
     // token: {
