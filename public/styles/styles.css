@@ -86,3 +86,18 @@ th{
   max-height: 85px;
   min-height: 85px;
 } */
+
+
+
+/* @media screen and (max-width: 575px) {
+  .navbar {
+    position: relative;
+  }
+  .brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    display: block;
+  }
+} */
+
