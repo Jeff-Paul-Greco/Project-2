@@ -46,13 +46,6 @@ module.exports = function(app) {
     );
   });
 
-  // Getting all users in the db
-  app.get("/api/users", function(req, res) {
-      db.User.findAll({}).then(function(response) {
-        res.json(response);
-      });
-  });
-
   // Creating a new user (acct registration)
   app.post("/api/newUser", function(req, res) {
     let user = req.body;
@@ -60,6 +53,10 @@ module.exports = function(app) {
     db.User.create({
       username: user.username,
       password: user.password
+    }).then(function(response){
+      console.log(response);
+      res.status(204).redirect("/login");
     });
+    
   });
 };

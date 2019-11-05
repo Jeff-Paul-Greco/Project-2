@@ -17,20 +17,14 @@
         <thead>
           <th>Item Description</th>
           <th>Quantity Desired</th>
-          <th>Current Price</th>
-          <th>Add to Inventory</th>
+          <th>Add/Delete from Inventory</th>
         </thead>
         <tbody>
-          {{!-- <td>Nestle Water</td>
-          <td>50</td>
-          <td>$2.99</td>
-          <td><button class="btn btn-success btn-border">&plus;</button></td> --}}
 
           {{#each items}} {{#if this.wishlist}}
           <tr>
           <td>{{this.description}}</td>
           <td>{{this.qty}}</td>
-          <td>placeholder</td>
           <td><button data-id="{{this.id}}" class="btn btn-success btn-border update">&plus;</button>
           <button data-id="{{this.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
           </tr>
@@ -55,7 +49,6 @@
         </thead>
         <tbody>
 
-
           {{#each items}} {{#unless this.wishlist}}
           <tr>
           <td>{{this.description}}</td>
@@ -64,9 +57,6 @@
           </tr>
           {{/unless}} {{/each}}
 
-          {{!-- <td>Campbell's Chicken Noodle</td>
-          <td>500</td>
-          <td><button class="btn btn-danger btn-border">&minus;</button></td> --}}
         </tbody>
       </table>
 
