@@ -3,13 +3,13 @@
 }
 
 
-nav{
+/* nav{
   height: 85px;
   background-color: #444444;
   border-bottom: 1px solid #000000;
   width: 100vw;
   position: relative;
-}
+} */
 
 table{
   width: 100%;
@@ -78,11 +78,11 @@ th{
 }
 
 
-#logo{
+/* #logo{
   position: absolute;
   display: block;
   left: 45%;
-  /* right: auto; */
+  right: auto;
   max-height: 85px;
   min-height: 85px;
-}
+} */
