@@ -11,12 +11,15 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-
-    // token: {
-    //   type: DataTypes.STRING,
-    // }
-  });
+    }
+  },{
+  indexes: [
+      {
+          unique: true,
+          fields: ['username']
+      }
+  ]
+});
 
 
   User.associate = function (models) {
