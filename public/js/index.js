@@ -109,6 +109,15 @@ $(".delete").on("click", function(id) {
   reload();
 });
 
+$(".update").on("click", function(id) {
+  id = $(this).attr("data-id")
+  $.ajax({
+    url: "api/items/" + id,
+    type: "PUT"
+  });
+  reload();
+});
+
 function reload() {
   $.ajax({
     url: "api/items",

@@ -37,19 +37,27 @@ module.exports = function(app) {
     });
   });
 
+  // Update an item by id
+  app.put("/api/items/:id", function(req, res) {
+    db.Item.update({ wishlist: false }, { where: { id: req.params.id } }).then(
+      function(dbItem) {
+        res.json(dbItem);
+      }
+    );
+  });
+
   // Getting all users in the db
-  app.get("/api/:users?", function(req, res) {
-    if (req.params.users) {
-      Users.findAll({}).then(function(res) {
-        res.json(res);
+  app.get("/api/users", function(req, res) {
+      db.User.findAll({}).then(function(response) {
+        res.json(response);
       });
-    }
   });
 
   // Creating a new user (acct registration)
   app.post("/api/newUser", function(req, res) {
     let user = req.body;
-    Users.create({
+    console.log(user);
+    db.User.create({
       username: user.username,
       password: user.password
     });

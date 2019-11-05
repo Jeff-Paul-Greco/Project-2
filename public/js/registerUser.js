@@ -5,7 +5,7 @@
 // });
 
 // app.post('/register', function(req,res,proceed){
-  
+
 // const user = req.body.username
 // const pass = req.body.password
 // const pass2 = req.body.password2
@@ -19,28 +19,29 @@
 //   res.render('/register', {title: "THANK YOU FOR REGISTERING"})
 // });
 
-// this file should be users.js and should have the 
+// this file should be users.js and should have the
 // on click for registering
 
-$("#submit-registration").on("click", function(event){
+$("#submit-registration").on("click", function(event) {
   event.preventDefault();
 
   let newUser = {
-
-    firstName: $("#firstName").val().trim(),
-    lastName:$("#lastName").val().trim(),
-    userName: $("#username").val().trim(),
-    password: $("#password").val().trim(),
+    username: $("#username-text").val().trim(),
+    password: $("#password-text").val().trim(),
+    // firstName: $("#firstName").val().trim(),
+    // lastName:$("#lastName").val().trim(),
+    // userName: $("#username").val().trim(),
+    // password: $("#password").val().trim(),
   };
+  console.log(newUser);
 
-  $.post("/api/newUser", newUser).then(function(data){
+  $.post("/api/newUser", newUser).then(function(data) {
     console.log(data);
-    alert("Pending registration..")
+    alert("Pending registration..");
   });
 
   $("#firstname").val("");
   $("#lastname").val("");
   $("#username").val("");
   $("#password").val("");
-  
-})
+});
