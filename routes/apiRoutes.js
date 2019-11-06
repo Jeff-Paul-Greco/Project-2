@@ -17,12 +17,13 @@ module.exports = function(app) {
   });
 
   // Get all items
-  app.post("/api/items", function(req, res) {
-    let userId = req.body.userId; // this ensures we only retrieve the logged in user's items.
-    db.Item.findAll({where:{UserId: userId}}).then(function(dbItems) {
-      res.json(dbItems);
-    });
-  });
+  // app.post("/api/items", function(req, res) {
+  //   let userId = req.body.userId; // this ensures we only retrieve the logged in user's items.
+  //   console.log(req);
+  //   db.Item.findAll({where:{UserId: userId}}).then(function(dbItems) {
+  //     res.json(dbItems);
+  //   });
+  // });
 
   // Create a new item
   app.post("/api/items", function(req, res) {
