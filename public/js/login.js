@@ -25,6 +25,7 @@ $(document).ready(function () {
       method: "POST",
       success: function (response) {
         console.log(response);
+        window.localStorage.setItem("username", body.username) // stores the username in local storage.
         window.localStorage.setItem("userId", response.userId) // sets the local storage for the user
         window.localStorage.setItem("loggedIn", "true"); // sets the local storage to being logged in.
         $("#login-invalid").empty(); // if invalid creds pops up, this just empties before redirecting
