@@ -11,15 +11,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/d20bd5a5c7.js"></script>
   <script src="./js/loggedInCheck.js"></script>
-  <title>Home Page</title>
+  <title>DoomPrep</title>
 </head>
 
 <body>
-    {{!-- using this to submit the post request when the inventory link is clicked. --}}
-    <form style="display: hidden" action="/inventory" method="POST" id="hidden-inventory-form">
-      <input type="hidden" id="username-inventory" name="username" value="" />
-      <input type="hidden" id="userId-inventory" name="userId" value="" />
-    </form>
+  {{!-- using this to submit the post request when the inventory link is clicked. --}}
+  <form style="display: hidden" action="/inventory" method="POST" id="hidden-inventory-form">
+    <input type="hidden" id="username-inventory" name="username" value="" />
+    <input type="hidden" id="userId-inventory" name="userId" value="" />
+  </form>
   {{!-- <nav>
     <div class="row">
       <div class="col-md-12">
@@ -61,9 +61,13 @@
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="main-nav">
     {{!-- <a class="navbar-brand" href="#">DoomPrep</a> --}}
-    <a class="navbar-brand brand" href="/">
-      <img src="./img/fallout.png" width="40" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand" href="/">
+      <img src="https://fontmeme.com/permalink/191105/b22789a33160dfafb34adc44bb924d49.png" width="200px"
+        alt="fallout-font" border="0">
     </a>
+    {{!-- <a class="navbar-brand brand" href="/">
+      <img src="./img/fallout.png" width="40" class="d-inline-block align-top" alt="">
+    </a> --}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -71,23 +75,23 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/inventory" id="inventory">View Inventory</a>
+          <a class="nav-link lead" href="/inventory" id="inventory">View Inventory</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/search" id="search">Item Lookup</a>
+          <a class="nav-link lead" href="/search" id="search">Item Lookup</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login" id="login">Login</a>
+          <a class="nav-link lead" href="/login" id="login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/register" id="register">Register</a>
+          <a class="nav-link lead" href="/register" id="register">Register</a>
         </li>
       </ul>
     </div>
   </nav>
 
   {{{body}}}
-  
+
 </body>
 
 </html>
