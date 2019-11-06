@@ -97,7 +97,7 @@ $("#wishlist").on("click", function () {
     description: $("#item-description").val().trim(),
     qty: $("#quantity").val().trim(),
     barcode: $("#item-search").val().trim(),
-    wishlist: false
+    wishlist: true
   }
   console.log(payload);
 
