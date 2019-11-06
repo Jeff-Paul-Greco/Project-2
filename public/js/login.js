@@ -3,15 +3,17 @@ window.localStorage.setItem("loggedIn", "false"); // default to not logged in.
 
 $(document).ready(function () {
 
+  $("#main-nav").hide()
+
   $("#login-btn").on("click", function (event) {
     event.preventDefault();
 
     var username = $("#username")
       .val()
-      .trim();
+      .trim()
     var password = $("#password")
       .val()
-      .trim();
+      .trim()
 
     var body = {
       username: username,
@@ -41,11 +43,8 @@ $(document).ready(function () {
     });
   });
 
-  $("#inventory").hide()
-
-  $(".acct-controls-div").hide()
-
-
-
-
 });
+
+
+
+
