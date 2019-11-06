@@ -1,0 +1,31 @@
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{title}}</h1>
+       <h2>To Get Started Sign Up Below!</h2>
+        <form method="POST" action="/api/newUser">
+          <div class="form-group">
+            <label for="Username-text">User Name</label>
+            <input type="text" name="username" id="username-text" class="form-control" aria-describedby="example-text"
+              placeholder="Enter User Name">
+          </div>
+          <div class="form-group">
+            <label for="Password-Text">Password</label>
+            <input type="password" class="form-control" name="password" id="password-text" aria-describedby="example-description"
+              placeholder="Enter Password "></textarea>
+          </div>
+          <div class="form-group">
+            <label for="Password2-Text">Re-Enter Password</label>
+            <input type="password" class="form-control" name="password2" id="password2-text" aria-describedby="example-description"
+              placeholder="Re-Enter Password"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/registerUser.js"></script>
