@@ -1,37 +1,64 @@
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark login-nav">
         <a class="navbar-brand" href="#">
             <img src="https://fontmeme.com/permalink/191105/b22789a33160dfafb34adc44bb924d49.png" width="200px"
                 alt="fallout-font" border="0">
         </a>
     </nav>
-    <div class="container welcome-container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1 class="text-center">Welcome Preppers!</h1>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center bg-light mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Log into DoomPrep</h5>
-                        <form>
-                            <div class="form-group">
-                                <label for="username"></label>
-                                <input type="text" class="form-control" id="username" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <label for="password"></label>
-                                <input type="password" class="form-control" id="password" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
-                        </form>
-                        <div class="separator">OR</div>
-                        <button class="btn btn-success btn-block" onclick="window.location.href = '/register';">Create New User</button>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container welcome-container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="display-4">Welcome Preppers!</h1>
+                    <br>
+                    <p class="lead"><b class="font-weight-bold">Create and manage</b> your Doomsday inventory.</p>
+                    <p class="lead"><b class="font-weight-bold">Search and add</b> items manually or by barcode.</p>
+                    <p class="lead"><b class="font-weight-bold">Save</b> needed items to your wishlist.</p>
+
+
+                    {{!-- Uses font-awesome icons --}}
+
+                    {{!-- <div>
+                        <i class="fas fa-warehouse warehouse-icon"></i>
+                        <span><b>Create and manage</b></span><span> your Doomsday inventory.</span>
+                    </div>
+                    <br>
+                    <div>
+                        <i class="fas fa-search-dollar search-icon"></i>
+                        <span><b>Search and add items</b></span><span> manually or
+                            by barcode.</span>
+                    </div>
+                    <br>
+                    <div>
+                        <i class="fas fa-piggy-bank piggy-icon"></i>
+                        <span><b>Save needed items</b></span><span> to your wishlist.</span>
+                    </div> --}}
+
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center bg-light mb-3 login-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Log into DoomPrep</h5>
+                            <form>
+                                <div class="form-group">
+                                    <label for="username"></label>
+                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password"></label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </form>
+                            <div class="separator">OR</div>
+                            <button class="btn btn-success btn-block"
+                                onclick="window.location.href = '/register';">Create
+                                New User</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 
