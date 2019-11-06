@@ -130,6 +130,10 @@ th{
   margin-bottom: 1.5rem;
 }
 
+#password2-text {
+  margin-bottom: 1.5rem;
+}
+
 #login-invalid, #user-alerts {
   color: #ff0000;
 }
