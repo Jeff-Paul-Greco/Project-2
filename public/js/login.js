@@ -1,21 +1,21 @@
-$(document).ready(function () {
-  $("#login").on("click", function (event) {
-    event.preventDefault();
+$("#main-nav").hide()
 
-    var username = $("#username")
-      .val()
-      .trim();
-    var password = $("#password")
-      .val()
-      .trim();
+$("#login").on("click", function (event) {
 
-    console.log(username);
-    console.log(password);
-  });
+  event.preventDefault();
 
-  $("#inventory").hide()
+  var username = $("#username")
+    .val()
+    .trim()
+  var password = $("#password")
+    .val()
+    .trim()
 
-  $(".acct-controls-div").hide()
-
+  console.log(username)
+  console.log(password)
 
 });
+
+
+
+
