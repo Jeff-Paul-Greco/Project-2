@@ -6,8 +6,12 @@ module.exports = function (app) {
     res.render("index", { title: "DoomsDay Preppers Sign-Up" });
   });
 
-  app.get("/login", function(err, res){
-    res.render("login")
+  app.get("/login", function (err, res) {
+    res.render("index", { title: "DoomsDay Preppers Sign-Up" });
+  });
+
+  app.get("/register", function(err, res){
+    res.render("register")
   });
 
   app.post("/register", function (req, res, proceed) {
