@@ -118,10 +118,14 @@ $(".update").on("click", function(id) {
   reload();
 });
 var filter = "";
-$("#filter-button").on("click", function() {
+$("#filter-button").unbind().on("click", function() {
+  if ($("#inventory-filter").val().trim() === "all") {
+    window.location.href = "/inventory";
+  } else {
   filter = $("#inventory-filter").val().trim();
-  var url = ("/inventory/" + filter);
+  var url = ("/sort/" + filter);
   window.location.href = url;
+  }
   // redirect(url, "_self");
 });
 

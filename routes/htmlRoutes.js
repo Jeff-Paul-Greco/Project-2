@@ -30,7 +30,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/inventory/:description", function (req, res) {
+  app.get("/sort/:description", function (req, res) {
     db.Item.findOne({ where: { description: req.params.description } }).then(function (dbItem) {
       res.render("sort", {
         item: dbItem
