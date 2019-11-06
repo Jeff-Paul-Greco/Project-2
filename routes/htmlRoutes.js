@@ -14,11 +14,12 @@ module.exports = function (app) {
   app.post("/login", function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
-    db.User.findOne({
+    db.User.findAll({
       where: { username: username }
     }).then(function (dbItem) {
-      var dbPass = dbItem.password;
-      var dbId = dbItem.id;
+      console.log(dbItem);
+      var dbPass = dbItem[0].password;
+      var dbId = dbItem[0].id;
       console.log(dbId);
       if (dbPass === password) {
         console.log("password matches");
@@ -37,11 +38,26 @@ module.exports = function (app) {
     res.render("register")
   });
 
-  app.post("/register", function (req, res, proceed) {
-    req.body.username;
-    req.body.password;
-    req.body.password2;
-    res.render("index", { title: "THANK YOU FOR REGISTERING" });
+  // Creating a new user (acct registration)
+  app.post("/register", function(req, res) {
+    let user = req.body;
+    console.log(user);
+    db.User.create({
+      username: user.username,
+      password: user.password
+    }).then(function(response){
+      console.log(response);
+      res.status(204).redirect("/login");
+    }).catch(function(err){
+      if (err.errors[0].path === "password"){
+        res.render("register", {"register-err-msg":err.errors[0].message})
+      } else if (err.errors[0].path === "users_username"){
+        res.render("register", {"register-err-msg":"User with same name already exists."})
+      } else {
+        res.render("register", {"register-err-msg":"Bad Request."})
+      }
+    });
+    
   });
 
   // Load inventory page
@@ -58,17 +74,6 @@ module.exports = function (app) {
   // Load search page
   app.get("/search", function (req, res) {
     res.render("search", {});
-  });
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
   });
 
   // Render 404 page for any unmatched routes
