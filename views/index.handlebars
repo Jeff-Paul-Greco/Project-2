@@ -23,10 +23,15 @@
                                 <label for="password"></label>
                                 <input type="password" class="form-control" id="password" placeholder="Password">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            <div id="login-invalid">
+                                {{!-- client-side javascript will fill this in --}}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="login-btn">Login</button>
                         </form>
                         <div class="separator">OR</div>
-                        <button class="btn btn-success btn-block" onclick="window.location.href = '/register';">Create New User</button>
+                        <button class="btn btn-success btn-block" onclick="window.location.href = '/register';">Create
+                            New User</button>
                     </div>
                 </div>
             </div>
