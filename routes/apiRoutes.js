@@ -17,11 +17,13 @@ module.exports = function(app) {
   });
 
   // Get all items
-  app.get("/api/items", function(req, res) {
-    db.Item.findAll({}).then(function(dbItems) {
-      res.json(dbItems);
-    });
-  });
+  // app.post("/api/items", function(req, res) {
+  //   let userId = req.body.userId; // this ensures we only retrieve the logged in user's items.
+  //   console.log(req);
+  //   db.Item.findAll({where:{UserId: userId}}).then(function(dbItems) {
+  //     res.json(dbItems);
+  //   });
+  // });
 
   // Create a new item
   app.post("/api/items", function(req, res) {
@@ -46,17 +48,5 @@ module.exports = function(app) {
     );
   });
 
-  // Creating a new user (acct registration)
-  app.post("/api/newUser", function(req, res) {
-    let user = req.body;
-    console.log(user);
-    db.User.create({
-      username: user.username,
-      password: user.password
-    }).then(function(response){
-      console.log(response);
-      res.status(204).redirect("/login");
-    });
-    
-  });
+
 };

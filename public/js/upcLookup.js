@@ -69,10 +69,11 @@ $("#new-item-btn").on("click", function (event) {
 $("#add-item").on("click", function () {
 
   var payload = {
-    username: "jdoe",
+    UserId: window.localStorage.getItem("userId"),
     description: $("#item-description").val().trim(),
     qty: $("#quantity").val().trim(),
-    barcode: $("#item-search").val().trim()
+    barcode: $("#item-search").val().trim(),
+    wishlist: false
   }
   console.log(payload);
 
@@ -92,11 +93,11 @@ $("#add-item").on("click", function () {
 $("#wishlist").on("click", function () {
 
   var payload = {
-    username: "jdoe",
+    UserId: window.localStorage.getItem("userId"),
     description: $("#item-description").val().trim(),
     qty: $("#quantity").val().trim(),
     barcode: $("#item-search").val().trim(),
-    wishlist: true
+    wishlist: false
   }
   console.log(payload);
 
