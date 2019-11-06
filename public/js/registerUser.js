@@ -22,6 +22,9 @@
 // this file should be users.js and should have the
 // on click for registering
 
+$("#main-nav").hide()
+
+
 $("#submit-registration").on("click", function(event) {
   event.preventDefault();
 
