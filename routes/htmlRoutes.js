@@ -10,7 +10,30 @@ module.exports = function (app) {
     res.render("index", { title: "DoomsDay Preppers Sign-Up" });
   });
 
-  app.get("/register", function(err, res){
+  // authenticating user
+  app.post("/login", function (req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    db.User.findOne({
+      where: { username: username }
+    }).then(function (dbItem) {
+      var dbPass = dbItem.password;
+      var dbId = dbItem.id;
+      console.log(dbId);
+      if (dbPass === password) {
+        console.log("password matches");
+        var response = { status: "login success", userId: dbId }
+        console.log(response);
+        res.json(response);
+      } else {
+        console.log("password doesn't match");
+        var response = { status: "invalid login"}
+        res.status(401).json(response);
+      }
+    });
+  });
+
+  app.get("/register", function (err, res) {
     res.render("register")
   });
 
