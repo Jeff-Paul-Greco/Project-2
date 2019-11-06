@@ -14,7 +14,11 @@
 </head>
 
 <body>
-
+    {{!-- using this to submit the post request when the inventory link is clicked. --}}
+    <form style="display: hidden" action="/inventory" method="POST" id="hidden-inventory-form">
+      <input type="hidden" id="username-inventory" name="username" value="" />
+      <input type="hidden" id="userId-inventory" name="userId" value="" />
+    </form>
   {{!-- <nav>
     <div class="row">
       <div class="col-md-12">
