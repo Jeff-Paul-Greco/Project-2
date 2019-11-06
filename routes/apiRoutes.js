@@ -17,8 +17,9 @@ module.exports = function(app) {
   });
 
   // Get all items
-  app.get("/api/items", function(req, res) {
-    db.Item.findAll({}).then(function(dbItems) {
+  app.post("/api/items", function(req, res) {
+    let userId = req.body.userId; // this ensures we only retrieve the logged in user's items.
+    db.Item.findAll({where:{UserId: userId}}).then(function(dbItems) {
       res.json(dbItems);
     });
   });
