@@ -17,20 +17,26 @@ module.exports = function (app) {
     db.User.findAll({
       where: { username: username }
     }).then(function (dbItem) {
-      console.log(dbItem);
-      var dbPass = dbItem[0].password;
-      var dbId = dbItem[0].id;
-      console.log(dbId);
-      if (dbPass === password) {
-        console.log("password matches");
-        var response = { status: "login success", userId: dbId }
-        console.log(response);
-        res.json(response);
+      if (dbItem.length === 0) {
+        console.log("No entry");
+        res.status(401).send("No User Account Exists");
       } else {
-        console.log("password doesn't match");
-        var response = { status: "invalid login"}
-        res.status(401).json(response);
+        var dbPass = dbItem[0].password;
+        var dbId = dbItem[0].id;
+        console.log(dbId);
+        if (dbPass === password) {
+          console.log("password matches");
+          var response = { status: "login success", userId: dbId }
+          res.json(response);
+        } else {
+          console.log("password doesn't match");
+          res.status(401).send("Invalid Credentials.");
+        }
+
       }
+    }).catch(function (err) {
+      console.log(err);
+      res.status(401);
     });
   });
 
@@ -39,32 +45,32 @@ module.exports = function (app) {
   });
 
   // Creating a new user (acct registration)
-  app.post("/register", function(req, res) {
+  app.post("/register", function (req, res) {
     let user = req.body;
     console.log(user);
     db.User.create({
       username: user.username,
       password: user.password
-    }).then(function(response){
+    }).then(function (response) {
       console.log(response);
       res.status(204).redirect("/login");
-    }).catch(function(err){
-      if (err.errors[0].path === "password"){
-        res.render("register", {"register-err-msg":err.errors[0].message})
-      } else if (err.errors[0].path === "users_username"){
-        res.render("register", {"register-err-msg":"User with same name already exists."})
+    }).catch(function (err) {
+      if (err.errors[0].path === "password") {
+        res.render("register", { "register-err-msg": err.errors[0].message })
+      } else if (err.errors[0].path === "users_username") {
+        res.render("register", { "register-err-msg": "User with same name already exists." })
       } else {
-        res.render("register", {"register-err-msg":"Bad Request."})
+        res.render("register", { "register-err-msg": "Bad Request." })
       }
     });
-    
+
   });
 
   // Load inventory page
   app.post("/inventory", function (req, res) {
     console.log(req.body);
     var userId = req.body.userId;
-    db.Item.findAll({where:{UserId: userId}}).then(function (dbItems) {
+    db.Item.findAll({ where: { UserId: userId } }).then(function (dbItems) {
       res.render("inventory", {
         items: dbItems
       });

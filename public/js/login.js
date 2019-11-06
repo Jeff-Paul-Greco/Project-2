@@ -7,6 +7,8 @@ $(document).ready(function () {
 
   $("#login-btn").on("click", function (event) {
     event.preventDefault();
+    $("#login-invalid").empty(); // if invalid creds pops up, this just empties before redirecting
+
 
     var username = $("#username")
       .val()
@@ -36,14 +38,14 @@ $(document).ready(function () {
           window.localStorage.setItem("username", body.username) // stores the username in local storage.
           window.localStorage.setItem("userId", response.userId) // sets the local storage for the user
           window.localStorage.setItem("loggedIn", "true"); // sets the local storage to being logged in.
-          $("#login-invalid").empty(); // if invalid creds pops up, this just empties before redirecting
           // fill out hidden form and submit it to send the post to /inventory
           $("#username-inventory").val(body.username);
           $("#userId-inventory").val(response.userId);
           $("#hidden-inventory-form").submit();
         },
         error: function (response) {
-          $("#login-invalid").text("Invalid Credentials");
+          console.log(response);
+          $("#login-invalid").text(response.responseText);
         }
 
       });
