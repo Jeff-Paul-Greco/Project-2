@@ -4,7 +4,7 @@
       <div class="col-8 offset-2">
         <h1>{{title}}</h1>
        <h2>To Get Started Sign Up Below!</h2>
-        <form method="POST" action="/api/newUser">
+        <form method="POST" action="/register">
           <div class="form-group">
             <label for="Username-text">User Name</label>
             <input type="text" name="username" id="username-text" class="form-control" aria-describedby="example-text"
@@ -20,8 +20,11 @@
             <input type="password" class="form-control" name="password2" id="password2-text" aria-describedby="example-description"
               placeholder="Re-Enter Password"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button id="submit" class="btn btn-primary float-right" id="submit-registration">Submit</button>
         </form>
+      </div>
+      <div id="#user-alerts">
+        {{register-err-msg}}
       </div>
     </div>
   </div>
