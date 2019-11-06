@@ -1,10 +1,10 @@
 # Doomsday Prepper
 
-Welcome to Doomsday Prepper, the webapp that searches and catalouges your doomsday horde. You can search and add items manually or by barcode into your inventory, then manage your horde from the inventory page. You can also save items to a wishlist to add them later!
+Welcome to Doomsday Prepper, the webapp that searches and catalogues your doomsday horde. You can search and add items manually or by barcode into your inventory, then manage your horde from the inventory page. You can also save items to a wishlist to add them later!
 
 ## Instructions
 
-1. When you visit the site, you will be directed to a login/resitration page. Please enter your information and click the button to login. You will then be directed to the search page.
+1. When you visit the site, you will be directed to a login/registration page. Please enter your information and click the button to login. You will then be directed to the search page.
 
 2. On the search page, enter a barcode into the text field with all leading and trailing numbers and then click the submit button. Below your search result will appear with a button to add the item. If the item was not found, then clicking this button will allow you to input the name manually. Confirm or enter the item name into the modal and assign a quantity. Click the Add button to add to your inventory, or click the wishlist button to add this item to your wishlist to be added later.
 
