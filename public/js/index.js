@@ -16,6 +16,11 @@ $(".update").on("click", function (id) {
   reload();
 });
 
+$("#inventory").on("click",function(event){
+  event.preventDefault();
+  reload();
+})
+
 function reload() {
   var userId = window.localStorage.getItem("userId");
   if (userId) {
