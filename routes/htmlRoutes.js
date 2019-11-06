@@ -56,11 +56,11 @@ module.exports = function (app) {
       res.status(204).redirect("/login");
     }).catch(function (err) {
       if (err.errors[0].path === "password") {
-        res.render("register", { "register-err-msg": err.errors[0].message })
+        res.json({ "error": err.errors[0].message })
       } else if (err.errors[0].path === "users_username") {
-        res.render("register", { "register-err-msg": "User with same name already exists." })
+        res.json({ "error": "User with same name already exists." })
       } else {
-        res.render("register", { "register-err-msg": "Bad Request." })
+        res.json({ "error": "Bad Request." })
       }
     });
 
