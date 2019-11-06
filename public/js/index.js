@@ -16,8 +16,7 @@ $(".update").on("click", function (id) {
   reload();
 });
 var filter = "";
-$("#filter-button").on("click", function(event) {
-  event.preventDefault();
+$("#filter-button").unbind().on("click", function() {
   if ($("#inventory-filter").val().trim() === "all") {
     window.location.href = "/inventory";
   } else {
