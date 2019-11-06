@@ -45,8 +45,10 @@ module.exports = function (app) {
   });
 
   // Load inventory page
-  app.get("/inventory", function (req, res) {
-    db.Item.findAll({}).then(function (dbItems) {
+  app.post("/inventory", function (req, res) {
+    console.log(req.body);
+    var userId = req.body.userId;
+    db.Item.findAll({where:{UserId: userId}}).then(function (dbItems) {
       res.render("inventory", {
         items: dbItems
       });
