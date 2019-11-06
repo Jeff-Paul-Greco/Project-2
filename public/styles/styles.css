@@ -60,16 +60,11 @@ th{
   margin-top: 30px;
 }
 
+
 .hidden{
   visibility: collapse;
 }
 
-#inventory{
-  display: block;
-  position: absolute;
-  left: 20%;
-  margin-top: 30px;
-}
 
 #new-item-desc{
   float: left;
