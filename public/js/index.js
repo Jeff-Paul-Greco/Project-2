@@ -15,6 +15,18 @@ $(".update").on("click", function (id) {
   });
   reload();
 });
+var filter = "";
+$("#filter-button").unbind().on("click", function() {
+  if ($("#inventory-filter").val().trim() === "all") {
+    window.location.href = "/inventory";
+  } else {
+  filter = $("#inventory-filter").val().trim();
+  var url = ("/sort/" + filter);
+  window.location.href = url;
+  }
+  // redirect(url, "_self");
+});
+
 
 $("#inventory").on("click",function(event){
   event.preventDefault();

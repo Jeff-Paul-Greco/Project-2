@@ -21,14 +21,14 @@
         </thead>
         <tbody>
 
-          {{#each items}} {{#if this.wishlist}}
+          {{#if item.wishlist}}
           <tr>
-          <td>{{this.description}}</td>
-          <td>{{this.qty}}</td>
-          <td><button data-id="{{this.id}}" class="btn btn-success btn-border update">&plus;</button>
-          <button data-id="{{this.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
+          <td>{{item.description}}</td>
+          <td>{{item.qty}}</td>
+          <td><button data-id="{{item.id}}" class="btn btn-success btn-border update">&plus;</button>
+          <button data-id="{{item.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
           </tr>
-          {{/if}} {{/each}}
+          {{/if}} 
 
         </tbody>
       </table>
@@ -49,13 +49,13 @@
         </thead>
         <tbody>
 
-          {{#each items}} {{#unless this.wishlist}}
+          {{#unless item.wishlist}}
           <tr>
-          <td>{{this.description}}</td>
-          <td>{{this.qty}}</td>
-          <td><button data-id="{{this.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
+          <td>{{item.description}}</td>
+          <td>{{item.qty}}</td>
+          <td><button data-id="{{item.id}}" class="btn btn-danger btn-border delete">&minus;</button></td>
           </tr>
-          {{/unless}} {{/each}}
+          {{/unless}} 
 
         </tbody>
       </table>
@@ -66,4 +66,4 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./js/index.js"></script>
+<script src="/js/index.js"></script>
