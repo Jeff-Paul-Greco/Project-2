@@ -36,6 +36,7 @@ $("#submit-registration").on("click", function(event) {
 
   $.post("/register", newUser).then(function(data) {
     console.log(data);
+    $("#user-alerts").text(data.error)
   });
 
   $("#firstname").val("");

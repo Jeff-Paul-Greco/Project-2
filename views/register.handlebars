@@ -20,23 +20,24 @@
           <p class="lead">Before it's too late!</p>
           <div class="form-group">
             <label for="Username-text"></label>
-            <input type="text" class="form-control" id="username-text" placeholder="Username">
+            <input type="text" name="username" class="form-control" id="username-text" placeholder="Username">
           </div>
           <div class="form-group">
             <label for="Password-Text"></label>
-            <input type="password" class="form-control" id="password-text" placeholder="New Password">
+            <input type="password" name="password" class="form-control" id="password-text" placeholder="New Password">
           </div>
           <div class="form-group">
             <label for="Password2-Text"></label> <input type="password" class="form-control" id="password2-text"
               placeholder="Re-Enter Password">
           </div>
           <button class="btn btn-success btn-block" id="submit-registration">Sign Up</button>
+          <div id="user-alerts">
+            {{register-err-msg}}
+          </div>
         </form>
-        <div id="#user-alerts">
-          {{register-err-msg}}
-        </div>
       </div>
     </div>
+
   </div>
 </div>
 
