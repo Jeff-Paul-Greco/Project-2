@@ -23,14 +23,17 @@ $(document).ready(function () {
       url: "/login",
       data: body,
       method: "POST",
-      success: function(response){
+      success: function (response) {
         console.log(response);
         window.localStorage.setItem("userId", response.userId) // sets the local storage for the user
         window.localStorage.setItem("loggedIn", "true"); // sets the local storage to being logged in.
         $("#login-invalid").empty(); // if invalid creds pops up, this just empties before redirecting
-        window.location = "/inventory"; // this sends us to the inventory page after being logged in.
+        // fill out hidden form and submit it to send the post to /inventory
+        $("#username-inventory").val(body.username);
+        $("#userId-inventory").val(response.userId);
+        $("#hidden-inventory-form").submit();
       },
-      error: function(response){
+      error: function (response) {
         $("#login-invalid").text("Invalid Credentials");
       }
 
